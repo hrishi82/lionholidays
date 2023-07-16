@@ -42,7 +42,7 @@ export const Members = () => {
     <Box mb={10}>
       <Box display={"flex"}>
         <Typography variant="h1" gutterBottom>
-          Present Members
+          Executive Committee
         </Typography>
         <Typography variant="h5" gutterBottom ml={3} sx={{ color: "grey:500" }}>
           (from 2022)

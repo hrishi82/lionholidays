@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Grid } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import { MemberCard } from "./MemberCard";
 // import grey from "@mui/material/colors";
 

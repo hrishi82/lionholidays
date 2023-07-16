@@ -1,4 +1,4 @@
-import { Typography, Button, Grid } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import upcomingEvents from "../../assets/upcomingEvents.svg";
 import { EventCard } from "./EventCard";

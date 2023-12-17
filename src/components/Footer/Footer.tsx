@@ -2,40 +2,39 @@ import { Link, Typography } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from '@mui/icons-material/Instagram';
 import { Box } from "@mui/material";
 
 export const Footer = () => {
   return (
     <Box
       height={"250px"}
-      width={"100vw"}
       display={"flex"}
-      alignItems={"center"}
+      alignItems={"start"}
       justifyContent={"space-between"}
+      
       py={4}
       px={8}
     >
       <Box>
         <Typography
-          variant={"h4"}
+          variant={"h5"}
           fontWeight={400}
-          ml={1}
-          color={"neutral.light"}
+          
+          
         >
-          ARSA
+          Lion Holidays
+        </Typography>
+        <Typography
+          variant={"body2"}
+          mt={2}
+          color={'text.secondary'}
+          
+        >
+          17 , Sublane, 9, 3rd Bye Ln N, Lachit Nagar, Guwahati, Assam 781007
         </Typography>
       </Box>
 
-      <Box>
-        <Typography
-          variant={"h6"}
-          fontWeight={400}
-          ml={1}
-          color={"neutral.light"}
-        >
-          ( Site under construction 🚧 )
-        </Typography>
-      </Box>
 
       <Box>
         <Box>
@@ -43,25 +42,41 @@ export const Footer = () => {
             variant={"body1"}
             fontWeight={400}
             my={2}
-            color={"neutral.light"}
+            
           >
             CONTACT US
           </Typography>
         </Box>
-        <Box color={"neutral.light"}>
+        <Box >
           <Box display={"flex"} alignItems={"center"} my={1}>
             <Box mr={2}>
               <FacebookIcon fontSize={"small"} />
             </Box>
 
             <Link
-              href="https://www.facebook.com/groups/hamradioassam"
+              href="https://www.facebook.com/profile.php?id=61551050214831"
               target="_blank"
               rel="noopener"
               underline="none"
             >
-              <Typography variant="body1" color={"neutral.light"}>
+              <Typography variant="body1" >
                 Facebook
+              </Typography>
+            </Link>
+          </Box>
+          <Box display={"flex"} alignItems={"center"} my={1}>
+            <Box mr={2}>
+              <InstagramIcon fontSize={"small"} />
+            </Box>
+
+            <Link
+              href="https://www.instagram.com/lionholidays_official/"
+              target="_blank"
+              rel="noopener"
+              underline="none"
+            >
+              <Typography variant="body1" >
+                Instagram
               </Typography>
             </Link>
           </Box>
@@ -70,8 +85,8 @@ export const Footer = () => {
               <MailIcon fontSize={"small"} />
             </Box>
 
-            <Typography variant="body1" color={"neutral.light"}>
-              assamham2005@gmail.com
+            <Typography variant="body1" >
+              Arunav.lionholidays@gmail.com
             </Typography>
           </Box>
 
@@ -81,13 +96,11 @@ export const Footer = () => {
             </Box>
 
             <Box>
-              <Typography variant="body1" color={"neutral.light"}>
-                +91-8638036054
+              <Typography variant="body1" >
+                +91-9127255853
               </Typography>
 
-              <Typography variant="body1" color={"neutral.light"}>
-                +91-9101229584
-              </Typography>
+              
             </Box>
           </Box>
         </Box>

@@ -1,13 +1,64 @@
-import { Typography } from "@mui/material";
-import { Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+
+import Carousel from "react-material-ui-carousel";
 import { Image } from "mui-image";
-import banner from "../../../assets/banner.jpg";
-import { Box } from "@mui/material";
+
+import turkey from "../../../assets/turkey.jpg";
+import greece from "../../../assets/greece.jpg";
+import paris from "../../../assets/paris.jpg";
+import { CarouselDefaultSettings } from "../../shared/utils";
+
+const BANNER_DATA = [
+  {
+    imgLink: greece,
+    textContent: "Curating unparalleled experiences tailored to you.",
+  },
+  {
+    imgLink: turkey,
+    textContent: "Curating unparalleled experiences tailored to you.",
+  },
+  {
+    imgLink: paris,
+    textContent: "Curating unparalleled experiences tailored to you.",
+  },
+];
+
+interface BannerCardPropsT {
+  imgLink: string;
+  textContent: string;
+}
 
 export const HeroBanner = () => {
+  const carouselSettings = CarouselDefaultSettings;
+
   return (
-    <Box position={"relative"} overflow={"hidden"} borderRadius={2}>
-      <Image src={banner} height={"600px"} duration={1500} />
+    <Carousel {...carouselSettings}>
+      {BANNER_DATA.map((item, index) => {
+        return (
+          <BannerCard
+            imgLink={item.imgLink}
+            textContent={item.textContent}
+            key={index}
+          />
+        );
+      })}
+    </Carousel>
+  );
+};
+
+const BannerCard = (props: BannerCardPropsT) => {
+  const { imgLink, textContent } = props;
+
+  const redirectionHandler = () => {
+    const footerElement = document.getElementById("footer");
+
+    if (footerElement) {
+      footerElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  return (
+    <Box position={"relative"} overflow={"hidden"}>
+      <Image src={imgLink} duration={500} />
       <Box
         position="absolute"
         top={0}
@@ -23,19 +74,21 @@ export const HeroBanner = () => {
             <Typography
               variant="h3"
               color={"secondary.contrastText"}
-              fontWeight={800}
+              fontWeight={600}
+              sx={{ textShadow: "-2px 1px 4px rgba(0,0,0,0.48)" }}
             >
-              Amateur Radio Society Of Assam (ARSA)
-            </Typography>
-            <Typography variant="caption" color={"secondary.contrastText"}>
-              You've reached the official website for Amateur Radio Society of
-              Assam. If you wish to be a part of our group, click on the button
-              below to register!
+              {textContent}
             </Typography>
           </Box>
 
-          <Button color="secondary" variant="contained">
-            Register now!
+          <Button
+            color="warning"
+            variant="contained"
+            size="large"
+            sx={{ height: "50px", width: "200px" }}
+            onClick={redirectionHandler}
+          >
+            Contact us!
           </Button>
         </Box>
       </Box>

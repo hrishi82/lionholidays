@@ -1,30 +1,56 @@
+import {useState, useEffect} from "react"
 import { Routes, Route } from "react-router-dom";
 import { NavigationBar } from "./components/NavigationBar/NavigationBar";
 import { HomePage } from "./components/HomePage";
-import { AboutUs } from "./components/AboutUs";
-import { Events } from "./components/Events";
-import { Members } from "./components/Members";
-import { ContactUs } from "./components/ContactUs";
 import { Box } from "@mui/material";
 import { Footer } from "./components/Footer";
+import { PageContentWrapper } from "./components/shared/PageContentWrapper";
 
 function App() {
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [bannerTextColor, setBannerTextColor] = useState('white'); // Set the initial color
+
+  const handleScroll = () => {
+    setScrollPosition(window.scrollY);
+  };
+
+  useEffect(() => {
+    const bannerElement = document.getElementById('homepage-banner');
+
+    if (bannerElement) {
+      const bannerRect = bannerElement.getBoundingClientRect();
+      const isPastBanner = bannerRect.bottom <= 0;
+
+      // Update banner color based on whether the entire banner is outside the viewport
+      setBannerTextColor(isPastBanner ? 'black' : 'white');
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollPosition]);
+
   return (
     <Box bgcolor={"neutral.light"} position="relative">
-      <NavigationBar />
+      <NavigationBar bannerTextColor={bannerTextColor}/>
 
-      <Box m={"auto"} maxWidth={"1024px"} pt={25} px={2}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/members" element={<Members />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-        </Routes>
-      </Box>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
 
-      <Box bottom={0} left={0} bgcolor={"secondary.dark"}>
-        <Footer />
+      <Box
+        bottom={0}
+        left={0}
+        borderTop={"1px solid"}
+        borderColor={"#d3d3d3"}
+        id={"footer"}
+      >
+        <PageContentWrapper>
+          <Footer />
+        </PageContentWrapper>
       </Box>
     </Box>
   );

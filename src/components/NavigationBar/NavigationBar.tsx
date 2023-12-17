@@ -1,7 +1,8 @@
-import { Link as MUILink } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import { Typography } from "@mui/material";
-import { Box } from "@mui/material";
+
+import { Link as MUILink, Box, Typography } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 interface NavBarPropsT {
   bannerTextColor: string;
@@ -9,10 +10,15 @@ interface NavBarPropsT {
 
 export const NavigationBar = (props: NavBarPropsT) => {
   const { bannerTextColor } = props;
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <Box
-      py={5}
-      px={8}
+      py={isMobile ? 2 : 5}
+      px={isMobile ? 2 : 8}
+      
       display="flex"
       alignItems={"center"}
       justifyContent={"space-between"}
@@ -27,7 +33,7 @@ export const NavigationBar = (props: NavBarPropsT) => {
       <Box display={"flex"} alignItems={"center"}>
         {/* <img src={logo} alt="website-logo" width={"80px"} height={"80px"} /> */}
 
-        <Typography variant={"h4"} fontWeight={600} ml={4}>
+        <Typography variant={isMobile ? "body1" : "h4"} fontWeight={600}>
           Lion Holidays
         </Typography>
       </Box>
@@ -35,9 +41,9 @@ export const NavigationBar = (props: NavBarPropsT) => {
         <MUILink
           component={NavLink}
           to="/"
-          ml={4}
+          ml={isMobile ? 2 : 4}
           underline="hover"
-          variant="body1"
+          variant={isMobile ? "caption" : "body1"}
           color={bannerTextColor}
         >
           HOME
@@ -55,9 +61,9 @@ export const NavigationBar = (props: NavBarPropsT) => {
           <MUILink
             component={NavLink}
             to="/"
-            ml={4}
+            ml={isMobile ? 2 : 4}
             underline="hover"
-            variant="body1"
+            variant={isMobile ? "caption" : "body1"}
             color={bannerTextColor}
           >
             CONTACT US

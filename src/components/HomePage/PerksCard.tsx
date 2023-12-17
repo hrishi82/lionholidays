@@ -9,7 +9,7 @@ interface InfoCardPropsT {
 export const PerksCard = (props: InfoCardPropsT) => {
   const { headerText, textContent, emoji } = props;
   return (
-    <Box>
+    <Box my={2}>
       <Box fontSize={30}>{emoji}</Box>
       <Typography variant="h5" my={1}>
         {headerText}

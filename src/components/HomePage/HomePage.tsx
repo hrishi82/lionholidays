@@ -1,11 +1,11 @@
-
 import { Box, Grid, Typography } from "@mui/material";
 
 import { HeroBanner } from "./HeroBanner/HeroBanner";
 import { PerksCard } from "./PerksCard";
 import { PageContentWrapper } from "../shared/PageContentWrapper";
 import { PERKS_SECTION_DATA, REVIEWS_SECTION_BG_COLOR } from "./utils/helper";
-import { Reviews } from "./Reviews";
+import { Reviews } from "./Reviews/Reviews";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export const HomePage = () => {
   return (
@@ -15,7 +15,7 @@ export const HomePage = () => {
       </Box>
 
       <PageContentWrapper>
-        <Box my={8}>
+        <Box my={4}>
           <Grid
             container
             spacing={3}
@@ -25,7 +25,7 @@ export const HomePage = () => {
           >
             {PERKS_SECTION_DATA.map((item) => {
               return (
-                <Grid item xs={2.7}>
+                <Grid item xs={12} md={2.8}>
                   <PerksCard
                     headerText={item.headerText}
                     textContent={item.textContent}
@@ -38,7 +38,16 @@ export const HomePage = () => {
         </Box>
       </PageContentWrapper>
 
-      <Box bgcolor={REVIEWS_SECTION_BG_COLOR} height={"760px"}>
+      <Box bgcolor={REVIEWS_SECTION_BG_COLOR} flex={1} position={"relative"}>
+        <Box
+          position={"absolute"}
+          top={"-40px"}
+          left={"50%"}
+          sx={{ transform: "translate(-50%, 0%)" }}
+         
+        >
+          <AccountCircleIcon sx={{ fontSize: '70px' }} color="warning" />
+        </Box>
         <PageContentWrapper>
           <Box my={8}>
             <Typography

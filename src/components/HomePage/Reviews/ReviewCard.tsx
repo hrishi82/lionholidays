@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box, Card, CardMedia, CardContent, Avatar } from "@mui/material";
 
-
 interface ReviewCardPropsT {
   userBG: string;
   userDP: string;
@@ -25,16 +24,16 @@ export const ReviewCard = (props: ReviewCardPropsT) => {
           position={"absolute"}
           bottom={20}
           left={"50%"}
-          sx={{  transform:"translate(-50%, 50%)" }}
-          border= {"2px solid white"}
+          sx={{ transform: "translate(-50%, 50%)" }}
+          border={"2px solid white"}
           borderRadius={"50%"}
         >
-          <Avatar alt={name} src={userDP} sx={{ width: 100, height: 100 }}/>{" "}
+          <Avatar alt={name} src={userDP} sx={{ width: 100, height: 100 }} />{" "}
         </Box>
       </Box>
 
       <CardContent>
-        <Box mt={4} textAlign={"center"}> 
+        <Box mt={4} textAlign={"center"}>
           <Typography variant="body2">{name}</Typography>
           <Typography variant="caption" color="text.secondary">
             <i>Recently loved: {place}</i>
@@ -42,7 +41,11 @@ export const ReviewCard = (props: ReviewCardPropsT) => {
         </Box>
 
         <Box m={2}>
-          <Typography variant="body2" color="text.secondary" textAlign={"justify"}>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            textAlign={"justify"}
+          >
             {comment}
           </Typography>
         </Box>

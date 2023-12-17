@@ -34,7 +34,7 @@ function App() {
   }, [scrollPosition]);
 
   return (
-    <Box bgcolor={"neutral.light"} position="relative">
+    <Box bgcolor={"neutral.light"} position="relative" width={'100vw'}>
       <NavigationBar bannerTextColor={bannerTextColor}/>
 
       <Routes>
